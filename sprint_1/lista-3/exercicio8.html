@@ -1,0 +1,52 @@
+<!-- 
+8. Crie um programa que:  
+
+a) Solicite o valor a ser depositado/retirado pelo usuário 
+
+b) Tenha os botões “Depositar” e “Retirar”. Ao clicar em algum deles, exibe um alerta com uma das mensagens abaixo, de acordo com o botão que foi clicado:  
+
+   - Depósito de R$X efetuado! Saldo atual: R$Y 
+
+   - Retirada de R$X efetuada! Saldo atual: R$Y 
+
+OBS: o valor do saldo atual se inicia em 0, para depois ir reduzindo/incrementando de acordo com a operação realizada 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Digite o valor a ser depositado ou retirado: </label>
+    <input type="number" id="input_num" required>
+
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+
+</body>
+
+</html>
+<Script>
+
+    var saldo = 0;
+
+    function depositar() {
+        var num = parseFloat(input_num.value);
+        saldo += num;
+        alert('Depósito de ' + num + ' efetuado! Saldo atual: R$' + saldo)
+    }
+
+    function retirar() {
+        var num = parseFloat(input_num.value);
+        saldo -= num;
+        alert('Retirada de ' + num + ' efetuada! Saldo atual: R$' + saldo)
+    }
+
+</Script>
+<!-- feito -->

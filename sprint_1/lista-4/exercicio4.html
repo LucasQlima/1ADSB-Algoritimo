@@ -1,0 +1,53 @@
+<!-- 
+4. Um grupo de amigos costuma se reunir na casa de um deles para comer pizza. Só que eles têm um trato de que o valor da pizza, quando dividido entre os amigos, não deve passar de 20,00 por amigo. Ajude-os criando um programa o qual: 
+
+a) Pergunte o valor da pizza 
+
+b) Pergunte a quantidade de amigos reunidos 
+
+c) Ao clicar em "Rola a pizza?", calcule e exiba o valor que cada amigo vai pagar na pizza com uma frase na página como esta "Cada amigo vai pagar R$X pela pizza" 
+
+d) Somente caso o valor por amigo passe de R$20,00, exiba também a frase "Deu ruim! Pizza muito cara!"
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="">Digite o valor da pizza:</label>
+    <input type="number" id="input_valorPizza">
+
+    <label for="">Digite a quantidade de amigos:</label>
+    <input type="number" id="input_qtdAmigos">
+
+    <button onclick="acao()">Rola a pizza?</button>
+
+    <div id="div_texto"></div>
+
+</body>
+</html>
+
+<script>
+
+    function acao() {
+        var pizza = parseFloat(input_valorPizza.value);
+        var qtdAmigos = parseFloat(input_qtdAmigos.value);
+        var dividido = pizza / qtdAmigos;
+
+        if (dividido > 20) {
+            div_texto.innerHTML = `Cada amigo vai pagar R$${dividido} pela pizza <br>`
+            div_texto.innerHTML += `<i style="color: red">Deu ruim! Pizza muito cara<i>`
+        }
+
+        if (dividido <= 19) {
+            div_texto.innerHTML = `Cada amigo vai pagar R$${dividido} pela pizza <br>`
+        }
+
+    }
+
+</script>

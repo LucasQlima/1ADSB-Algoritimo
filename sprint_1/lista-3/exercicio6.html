@@ -1,0 +1,82 @@
+<!--
+6. Crie um programa que:  
+
+a) Solicite 2 números ao usuário  
+
+b) tenha um botão para cada operação aritmética. Ao clicar em algum deles, exibir na página uma dessas frases:  
+
+   - A soma entre X e Y é Z  
+
+   - A diferença entre X e Y é Z  
+
+   - O produto entre X e Y é Z  
+
+   - A razão entre X e Y é Z         
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Digite o primeiro número:</label>
+    <input type="number" id="input_n1">
+
+    <br><br>
+
+    <label for="">Digite o segundo número:</label>
+    <input type="number" id="input_n2">
+
+    <br><br>
+
+    <div style="margin-bottom: 5%;">
+            <button onclick="multiplicar()">Multiplicar</button>
+            <button onclick="dividir()">Dividir</button>
+            <button onclick="subtrair()">Subtrair</button>
+            <button onclick="somar()">Somar</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function multiplicar() {
+        var n1 = input_n1.value;
+        var n2 = input_n2.value;
+        var multiplicacao = n1 * n2
+
+        alert(n1 + " X " + n2 + " = " + multiplicacao);
+    }
+
+    function dividir() {
+        var n1 = input_n1.value;
+        var n2 = input_n2.value;
+        var divisao = n1 / n2
+
+        if (n2 != 0) {
+            alert(n1 + " : " + n2 + " = " + divisao);
+        } else {
+            alert("O valor do segundo número deve ser diferente de 0");
+        }
+    }
+
+    function subtrair() {
+        var n1 = input_n1.value;
+        var n2 = input_n2.value;
+        var subtracao = n1 - n2
+
+        alert(n1 + " - " + n2 + "=" + subtracao);
+    }
+
+    function somar() {
+        var n1 = parseFloat(input_n1.value);
+        var n2 = parseFloat(input_n2.value);
+        var soma = n1 + n2
+
+        alert(n1 + " + " + n2 + " = " + soma);
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>O contador está em: <b  id="b_contagem">0</b></div>
+    
+    <button onclick="decrementar()"> - </button>
+    <button onclick="incrementar()"> + </button>
+
+</body>
+
+</html>
+<script>
+
+    var contador = 0;
+    //Se utilizado em mais de 1 função deve ser global.
+    //Se for utilizar a variavel para acumular valor.
+
+
+    function incrementar() {
+        contador += 1;
+        b_contagem.innerHTML = contador;
+    }
+
+    function decrementar() {
+        contador -= 1;
+        b_contagem.innerHTML = contador;
+    }
+
+</script>

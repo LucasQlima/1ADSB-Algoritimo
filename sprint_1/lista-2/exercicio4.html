@@ -1,0 +1,60 @@
+<!--
+✅ Um campo para inserir o Nome da Rua/Avenida/Vila
+✅ Um campo para inserir o Número da Casa
+✅ Um botão com o texto "Onde eu moro"
+✅ Ao clicar no botão, as seguintes mensagens devem aparecer:
+"Seu logradouro é X" (onde X é o nome da rua/avenida digitada)
+"O número do seu logradouro é Y" (onde Y é o número da casa informado)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(3, 8, 72);">
+    <div style="background-color: aliceblue;
+                border: 3px solid rgb(7, 7, 124);
+                border-radius: 30px;
+                box-shadow: inset 5em 1em rgb(239, 225, 142);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10%;
+                margin-bottom: 10%;
+                margin-left: 35%;
+                margin-right: 35%;">
+        <h1>Bem vindo ao quarto exercício</h1>
+        
+        <br>
+        
+        <label for="">Insira nome da sua rua/avenida/vila:</label>
+        <input type="text" id="input_endereco">
+
+        <br>
+        <br>
+        
+        <label for="">Insira o número da sua residencia:</label>
+        <input type="number" id="input_numero">
+        
+        <br>
+        
+        <button onclick="acao()" style="margin-bottom: 5%;">Onde eu moro</button>
+    </div>
+</body>
+</html> 
+
+<script>
+
+    function acao() 
+    {
+        alert("Seu logradouro é " + input_endereco.value);
+        alert("O número do seu logradouro é " + input_numero.value);
+    }
+
+</script>
+
+<!--FINALIZADO--

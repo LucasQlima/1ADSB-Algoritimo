@@ -1,0 +1,58 @@
+<!-- 
+18. Crie um programa o qual: 
+
+a) Solicite 2 notas de um aluno 
+
+b) Ao clicar em "Verificar situação", calcule sua média e... 
+
+c) Caso a média seja a partir de 6, exiba "Parabéns, aprovado!" 
+
+d) Caso a média seja menor que 6, exiba "Tente outra vez..."  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Digite a primeira nota:</label>
+    <input type="number" id="input_qtdNota1">
+
+    <br><br>
+
+    <label for="">Digite a segunda nota:</label>
+    <input type="number" id="input_qtdNota2">
+
+    <br><br>
+
+    <button onclick="acao()">Verificar situação</button>
+
+    <br><br>
+    
+    <div id="div_texto"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function acao() {
+        var nota1 = parseFloat(input_Nota1.value);
+        var nota2 = parseFloat(input_Nota2.value);
+        var media = (nota1 + nota2) / 2
+
+        if (media >= 6) {
+            alert('Parabéns, aprovado!')
+        } else {
+            alert('Tente outra vez...')
+        }
+    }
+
+</script>

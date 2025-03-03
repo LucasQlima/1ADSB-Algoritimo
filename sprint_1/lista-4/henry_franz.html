@@ -1,0 +1,266 @@
+<!-- 
+1. crie um programa para que :
+
+dentro da sptech temos diversos sprints e disciplinas, faça um simulador de nota final
+de uma determinada sprint (a primeira)
+• deve ser possível receber nome do aluno
+• deve ser possível aluno selecionar uma disciplina
+o algoritmo (questionário 30%, integradinha30% e p.i 40%)
+o banco de dados (questionário 20%, integradinha35% e p.i 45%)
+o arq.comp (questionário 30%, integradinha30% e p.i 40%)
+o t.i (questionário 20%, integradinha35% e p.i 45%)
+o s.o (questionário 30%, integradinha30% e p.i 40%)
+obs: pesos foram inventados e varados para desafiar você Lucas
+
+• caso matéria digitada for invalidar, exiba "ops, acredito que não existe essa
+matéria na sptech , tente novamente", o "tente novamente", precisa estar em
+negrito e amarelo
+
+• deve ser possível obter as 3 notas dos questionários e fazer sua média
+aritmética (precisa estar entre 0 e 10)
+
+• deve ser possível obter a nota da integradinha, (precisa estar entre 0 e 10)
+
+• deve ser possível obter a nota de p.i(precisa estar entre 0 e 10)
+caso usuário insira um valor invalido como: "asdljsa", 100, "-1" , exiba "ops, acredito
+que digitou errado tente novamente", O "tente novamente", precisa estar em negrito
+e amarelo
+
+• ao clicar no botão “Ver Nota” o algoritmo deve exibir "Sua nota final foi de X na
+matéria Y", X é a nota final do aluno e Y é matéria escolhida
+
+• se a nota do aluno for maior ou igual a 6, exiba também: "parabéns aluno Z,
+vamos para outro amor de verão", Z é o nome do aluno e precisa estar em
+itálico e azul
+
+• caso aluno tenha nota menor que 6, exiba também: "Infelizmente Z não foi
+dessa vez faltou XPTO pontos para chegar a 6, vamos para outro amor de
+verão", XPTO é nota que faltava para chegar 6 e deve estar vermelho e negrito,
+o nome do aluno
+
+Dicas :
+- Para validação pode ser usada a própria do input do HTML ou ser feita pelo
+javascript
+- Para selecionar a mateira pode ser feito por um input mesmo
+- Para soma da média final é utilizada média ponderada então irá usar % que foi
+ensinado em aula (considerando dez uma nota, 10 * 1 = 100% de peso, 10 *
+0.4 = 40% de peso)
+Obs: não desanime e trapaceei, o maior brinde é conhecimento  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Simulador de nota final</h1>
+
+    <label for="">Nome do aluno/a:</label>
+    <input type="text" id="input_aluno">
+
+    <br><br>
+
+    <h3>Matérias:</h3>
+
+    <p>algoritmo (questionário 30%, integradinha 30% e p.i 40%);</p>
+    <p>banco de dados (questionário 20%, integradinha 35% e p.i 45%);</p>
+    <p>arq.comp (questionário 30%, integradinha 30% e p.i 40%);</p>
+    <p>t.i (questionário 20%, integradinha 35% e p.i 45%);</p>
+    <p>s.o (questionário 30%, integradinha 30% e p.i 40%).</p>
+    <p>----------------------------------------------------------</p>
+
+    <br>
+
+    <label for="">Digite o nome da matéria exatamente igual as citadas acima:</label>
+    <input type="text" id="input_materia">
+
+    <br><br>
+
+    <button onclick="acao()">Avançar</button>
+
+    <br><br>
+
+    <div id="div_text"></div>
+
+    <br><br>
+
+    <div id="div_final"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function acao() {
+        var nome = input_aluno.value;
+        var materia = input_materia.value;
+        var texto_html = `
+                            <p>----------------------------------------------------------</p>
+                            <h3>Você escolheu a matéria de ${materia}!</h3>
+
+                            <label for="">Digite a nota do questionário 1:</label>
+                            <input type="number" id="input_questionario1">
+
+                            <br><br>
+
+                            <label for="">Digite a nota do questionário 2:</label>
+                            <input type="number" id="input_questionario2">
+
+                            <br><br>
+
+                            <label for="">Digite a nota do questionário 3:</label>
+                            <input type="number" id="input_questionario3">
+
+                            <br><br>
+
+                            <label for="">Digite a nota da integradinha:</label>
+                            <input type="number" id="input_integradinha">
+
+                            <br><br>
+
+                            <label for="">Digite a nota de P.I:</label>
+                            <input type="number" id="input_pi">
+
+                            <br><br>
+
+                            <button onclick="calcularNota()">Ver Nota</button>
+                        `;
+
+        if (materia != "algoritmo") {
+            if (materia != "banco de dados") {
+                if (materia != "arq.comp") {
+                    if (materia != "t.i") {
+                        if (materia != "s.o") {
+                            div_text.innerHTML = `Ops, acredito que não existe essa matéria na sptech.<b style="color:yellow"> Tente novamente </b>`;
+                        } else {
+                            div_text.innerHTML = texto_html;
+                        }
+                    } else {
+                        div_text.innerHTML = texto_html;
+                    }
+                } else {
+                    div_text.innerHTML = texto_html;
+                }
+            } else {
+                div_text.innerHTML = texto_html;
+            }
+        } else {
+            div_text.innerHTML = texto_html;
+        }
+
+    }
+
+    function calcularNota() {
+        var nome = input_aluno.value;
+        var materia = input_materia.value;
+
+        var questionario1 = Number(input_questionario1.value);
+        var questionario2 = Number(input_questionario2.value);
+        var questionario3 = Number(input_questionario3.value);
+        var integradinha = Number(input_integradinha.value);
+        var pi = Number(input_pi.value);
+
+        var mediaQuestionarios = (questionario1 + questionario2 + questionario3) / 3;
+
+        var notaFinal1 = (mediaQuestionarios * 0.3) + (integradinha * 0.3) + (pi * 0.4);
+        var notaFinal2 = (mediaQuestionarios * 0.2) + (integradinha * 0.35) + (pi * 0.45);
+
+        var erro = `ops, acredito que digitou errado <b style="color:yellow">Tente novamente </b>`;
+        var parabenizar = `<br>parabéns aluno/a <i style="color: blue">${nome}</i>, vamos para outro amor de verão`;
+
+        if (questionario1 < 0) {
+            div_final.innerHTML = erro
+        } else {
+            if (questionario1 > 10) {
+                div_final.innerHTML = erro
+            } else {
+                if (questionario2 < 0) {
+                    div_final.innerHTML = erro
+                } else {
+                    if (questionario2 > 10) {
+                        div_final.innerHTML = erro
+                    } else {
+                        if (questionario3 < 0) {
+                            div_final.innerHTML = erro
+                        } else {
+                            if (questionario3 > 10) {
+                                div_final.innerHTML = erro
+                            } else {
+                                if (integradinha < 0) {
+                                    div_final.innerHTML = erro
+                                } else {
+                                    if (integradinha > 10) {
+                                        div_final.innerHTML = erro
+                                    } else {
+                                        if (pi < 0) {
+                                            div_final.innerHTML = erro
+                                        } else {
+                                            if (pi > 10) {
+                                                div_final.innerHTML = erro
+                                            } else {
+                                                if (materia == 'algoritmo') {
+                                                    div_final.innerHTML = `Sua nota final foi de ${notaFinal1} na matéria ${materia}`
+                                                    if (notaFinal1 >= 6) {
+                                                        div_final.innerHTML += parabenizar;
+                                                    } else {
+                                                        var nota = notaFinal1;
+                                                        div_final.innerHTML += `<br>Infelizmente ${nome} não foi dessa vez faltou <b style="color:red"> ${6-nota} </b>pontos para chegar a 6, vamos para outro amor de verão`;;
+                                                    }
+                                                }
+                                                if (materia == 'arq.comp') {
+                                                    div_final.innerHTML = `Sua nota final foi de ${notaFinal1} na matéria ${materia}`
+                                                    if (notaFinal1 >= 6) {
+                                                        div_final.innerHTML += parabenizar;
+                                                    } else {
+                                                        var nota = notaFinal1;
+                                                        div_final.innerHTML += `<br>Infelizmente ${nome} não foi dessa vez faltou <b style="color:red"> ${6-nota} </b>pontos para chegar a 6, vamos para outro amor de verão`;;
+                                                    }
+                                                }
+                                                if (materia == 's.o') {
+                                                    div_final.innerHTML = `Sua nota final foi de ${notaFinal1} na matéria ${materia}`
+                                                    if (notaFinal1 >= 6) {
+                                                        div_final.innerHTML += parabenizar;
+                                                    } else {
+                                                        var nota = notaFinal1;
+                                                        div_final.innerHTML += `<br>Infelizmente ${nome} não foi dessa vez faltou <b style="color:red"> ${6-nota} </b>pontos para chegar a 6, vamos para outro amor de verão`;;
+                                                    }
+                                                }
+                                                if (materia == 'banco de dados') {
+                                                    div_final.innerHTML = `Sua nota final foi de ${notaFinal2} na matéria ${materia}`
+                                                    if (notaFinal2 >= 6) {
+                                                        div_final.innerHTML += parabenizar;
+                                                    } else {
+                                                        var nota = notaFinal2;
+                                                        div_final.innerHTML += `<br>Infelizmente ${nome} não foi dessa vez faltou <b style="color:red"> ${6-nota} </b>pontos para chegar a 6, vamos para outro amor de verão`;;
+                                                    }
+                                                }
+                                                if (materia == 't.i') {
+                                                    div_final.innerHTML = `Sua nota final foi de ${notaFinal2} na matéria ${materia}`
+                                                    if (notaFinal2 >= 6) {
+                                                        div_final.innerHTML += parabenizar;
+                                                    } else {
+                                                        var nota = notaFinal2;
+                                                        div_final.innerHTML += `<br>Infelizmente ${nome} não foi dessa vez faltou <b style="color:red"> ${6-nota} </b>pontos para chegar a 6, vamos para outro amor de verão`;;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+</script>

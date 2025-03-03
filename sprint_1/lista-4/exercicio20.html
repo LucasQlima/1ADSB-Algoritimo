@@ -1,0 +1,64 @@
+<!-- 
+20. Crie um programa o qual: 
+
+a) Solicite a quantidade de homens e mulheres num elevador 
+
+b) Ao clicar num botão "Ligar elevador", calcule o peso total no elevador, considerando que um homem pesa em média 90kg e uma mulher 70kg 
+
+c) Caso o peso seja até 500, exiba uma frase na cor verde abaixo do botão com a frase Elevador vai se mover, pois está com Xkg 
+
+d) Caso o peso seja maior que 500, exiba uma frase na cor vermelha abaixo do botão com a frase Alguém precisa descer. Precisa perder Xkg para mover o elevador 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Digite a quantidade de homens que entraram no elevador:</label>
+    <input type="number" id="input_qtdHomens">
+
+    <br><br>
+
+    <label for="">Digite a quantidade de mulheres que entraram no elevador:</label>
+    <input type="number" id="input_qtdMulheres">
+
+    <br><br>
+
+    <button onclick="acao()">Ligar elevador</button>
+
+    <br><br>
+
+    <div id="div_texto"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function acao() {
+        var qtdHomens = parseFloat(input_qtdHomens.value);
+        var qtdMulheres = parseFloat(input_qtdMulheres.value);
+        var pesoHoemens = qtdHomens * 90;
+        var pesoMulheres = qtdMulheres * 70;
+        var total = pesoHoemens + pesoMulheres;
+
+        
+
+        if (total <= 500) {
+            div_texto.innerHTML = `<b style="color: green">Elevador vai se mover, pois está com ${total}kg</b> <br>`;
+        } else {
+            div_texto.innerHTML = `<b style="color: red">Alguém precisa descer. Precisa perder ${total}kg para mover o elevador </b> <br>`;
+        }
+
+    }
+
+</script>

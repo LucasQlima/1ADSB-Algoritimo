@@ -1,0 +1,66 @@
+<!-- 
+9. Estima-se que os usuários de conteúdo de Streaming gastem cerca de 100 milhões de horas por dia nesse tipo de entretenimento.  
+
+Em média um episódio de seriado americano do estilo SITCOM (Friends, How I Met Your Mother, Dois Homens e Meio, etc.) tem 22min de duração.  
+
+Sabendo disso, crie um programa o qual:  
+
+a) Peça ao usuário para informar a última série (SITCOM) que ele assistiu 
+
+b) Peça ao usuário para informar o total de episódios que ele já assistiu da série 
+
+c) Tenha um botão "Verificar nível" que exiba abaixo dele a seguinte frase:  
+
+     "Vejo que você gosta da série X"   
+
+E se o usuário já gastou mais de 30 horas na série informada, exiba também: "Uau, você realmente gosta dessa série!".  
+
+Obs: Considere 22min como o tempo de duração de 1 episódio.  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Digite a última série (SITCOM) que ele assistiu:</label>
+    <input type="text" id="input_serie">
+
+    <br><br>
+
+    <label for="">Digite o total de episódios que ele já assistiu da série:</label>
+    <input type="number" id="input_totalEp">
+
+    <br><br>
+
+    <button onclick="acao()">Verificar nível</button>
+
+    <br><br>
+
+    <div id="div_texto"></div>
+
+</body>
+</html>
+
+<script>
+
+    function acao() {
+        var serie = input_serie.value;
+        var totalEp = parseFloat(input_totalEp.value);
+        var hrsAssistidas = totalEp * 22 / 60;
+
+        div_texto.innerHTML = `Vejo que você gosta da série ${serie} <br>`;
+
+        if (hrsAssistidas > 30) {
+
+            div_texto.innerHTML += `Uau, você realmente gosta dessa série! ${hrsAssistidas}`;
+        }
+
+    }
+
+</script>

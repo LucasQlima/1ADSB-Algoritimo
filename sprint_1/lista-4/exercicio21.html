@@ -1,0 +1,63 @@
+<!-- 
+21. Crie um programa o qual: 
+
+a) Pergunte ao usuário qual sua meta de economia 
+
+b) Pergunte ao usuário quanto tem guardado 
+
+c) Ao clicar em "Analisar economia"... 
+
+d) Caso a meta tenha sido alcançada ou ultrapassada, exibir, abaixo do botão, a frase Parabéns, meta alcançada!. Caso a meta tenha sido ultrapassada, exibir também a frase Meta ultrapassada em X (onde X é a diferença entre a economia e a meta) 
+
+e) Caso a meta ainda não tenha sido alcançada, exibir, abaixo do botão, a frase Força! Ainda em busca da meta! Falta X (onde X é a diferença entre a meta e a economia) 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">Digite qual sua meta de economia:</label>
+    <input type="number" id="input_meta">
+
+    <br><br>
+
+    <label for="">Digite quanto tem guardado:</label>
+    <input type="number" id="input_reserva">
+
+    <br><br>
+
+    <button onclick="acao()">Analisar economia</button>
+
+    <br><br>
+
+    <div id="div_texto"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function acao() {
+        var meta = parseFloat(input_meta.value);
+        var reserva = parseFloat(input_reserva.value);  
+
+        if (meta <= reserva) {
+            div_texto.innerHTML = `Parabéns, meta alcançada! <br>`;
+            if (meta < reserva) {
+                div_texto.innerHTML += `Meta ultrapassada em R$${reserva - meta} <br>`;
+            }
+        } else {
+            div_texto.innerHTML = `frase Força! Ainda em busca da meta! Falta R$${meta - reserva}`;
+        }
+
+    }
+
+</script>

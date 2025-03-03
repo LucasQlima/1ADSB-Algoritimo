@@ -20,7 +20,7 @@ d) Exiba um alert com o valor da conta a ser paga.
 <body>
 
     <label for="">Digite a quantidade de KWh consumida no mês:</label>
-    <input type="number" id="input_hwh">
+    <input type="number" id="input_kwh">
 
     <button onclick="acao()">Calcular conta de luz</button>
 
@@ -33,16 +33,13 @@ d) Exiba um alert com o valor da conta a ser paga.
 
     function acao() {
         var kwh = parseFloat(input_kwh.value);
-        var conta = kwh * 0.85
-
-        if (kwh >= 100) {
-            alert(`Vai pagar R$${conta}`)
-        }
+        var conta = kwh * 0.85;
 
         if (kwh < 100) {
-            conta = conta * 0.1
-            alert(`Vai pagar R$${conta}`)
+            conta += conta * 0.1
         }
+
+        alert(`Vai pagar R$${conta}`);
 
     }
 
